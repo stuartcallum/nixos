@@ -34,7 +34,6 @@ in {
       polkit
       sway-contrib.grimshot
       dolphin
-      zoom-us
 		];
 	programs.steam.enable = true;
 }
