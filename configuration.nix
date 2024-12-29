@@ -7,12 +7,13 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./packages.nix
-      ./packages/sway.nix
-#      ./virtualisation.nix
-#      ./vfio-isis.nix
-      ./packages/emulation.nix
+	./hardware-configuration.nix
+	./packages/packages.nix
+#	./packages/sway.nix
+#	./virtualisation.nix
+#	./vfio-isis.nix
+	./packages/emulation.nix
+	./packages/gnome.nix
     ];
 
   # Bootloader.
@@ -64,17 +65,6 @@
   # Enable automatic login for the user.
   services.getty.autologinUser = "callum";
  
-    # rtkit is optional but recommended
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-  };
-
 	services.devmon.enable = true;
 	services.gvfs.enable = true;
 	services.udisks2.enable = true;
@@ -97,7 +87,6 @@
 	];
 
 #	programs.starship.enable = true;
-  programs.sway.enable = true ;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -115,6 +104,18 @@
       chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
     };
   };
+
+	# Remove sound.enable or set it to false if you had it set previously, as sound.enable is only meant for ALSA-based configurations
+
+	# rtkit is optional but recommended
+	security.rtkit.enable = true;
+	services.pipewire = {
+	  enable = true;
+	  alsa.enable = true;
+	  alsa.support32Bit = true;
+	  pulse.enable = true;
+	};
+
 
 ###  options.vfio.enable = with lib;
 ###    mkEnableOption "Configure the machine fro VFIO";
