@@ -9,9 +9,6 @@
     [ # Include the results of the hardware scan.
 	./hardware-configuration.nix
 	./packages/packages.nix
-#	./packages/sway.nix
-#	./virtualisation.nix
-#	./vfio-isis.nix
 	./packages/emulation.nix
 	./packages/gnome.nix
     ];
@@ -76,7 +73,7 @@
 
 	fonts.packages = with pkgs; [
 	  noto-fonts
-	  noto-fonts-cjk
+    noto-fonts-cjk-sans
 	  noto-fonts-emoji
 	  liberation_ttf
 	  fira-code
