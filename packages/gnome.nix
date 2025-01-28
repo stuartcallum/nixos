@@ -21,9 +21,6 @@
 		gnome-photos
 		gnome-tour
 		gedit
-		gnome-disk-utility
-	]) ++ (with pkgs; [
-		cheese
 		gnome-music
 		gnome-terminal
 		epiphany

@@ -36,7 +36,7 @@ in {
 			coreutils
 			pciutils
 			samba
-			unstable.ghostty
+			popsicle
 		];
 	programs.steam.enable = true;
 }

@@ -35,7 +35,7 @@
 
   };
 
-		environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
       pciutils
       virt-manager
       virt-viewer
@@ -47,6 +47,5 @@
       gnome.adwaita-icon-theme
       qemu
       quickemu
-    ]
-  }
+    ];
 }

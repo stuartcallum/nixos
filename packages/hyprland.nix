@@ -5,9 +5,11 @@
 		slurp # screenshot functionality
 		wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
 		mako # notification system developed by swaywm maintainer
-		foot
 		waybar
 		fuzzel
+		xdg-desktop-portal-hyprland
+		kitty
+		hyprpaper
 	];
 
 	# Enable the gnome-keyring secrets vault. 
@@ -16,9 +18,9 @@
 	
 
 	# enable sway window manager
-	programs.sway = {
+	programs.hyprland= {
 		enable = true;
-		wrapperFeatures.gtk = true;
+		xwayland.enable = true;
 	};
 }
 

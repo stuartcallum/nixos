@@ -9,8 +9,9 @@
     [ # Include the results of the hardware scan.
 	./hardware-configuration.nix
 	./packages/packages.nix
-	./packages/emulation.nix
-	./packages/gnome.nix
+#	./packages/emulation.nix
+	./packages/hyprland.nix
+	./packages/virtualisation.nix
     ];
 
   # Bootloader.
