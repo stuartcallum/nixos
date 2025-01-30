@@ -10,6 +10,7 @@
 		xdg-desktop-portal-hyprland
 		kitty
 		hyprpaper
+		mpd
 	];
 
 	# Enable the gnome-keyring secrets vault. 

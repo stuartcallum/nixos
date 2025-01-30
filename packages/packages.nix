@@ -37,6 +37,7 @@ in {
 			pciutils
 			samba
 			popsicle
+      font-awesome
 		];
 	programs.steam.enable = true;
 }

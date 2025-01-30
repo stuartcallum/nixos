@@ -82,6 +82,7 @@
 	  mplus-outline-fonts.githubRelease
 	  dina-font
 	  proggyfonts
+    font-awesome
 	];
 
 #	programs.starship.enable = true;

@@ -4,19 +4,19 @@
 
   virtualisation.libvirtd = {
 
-      enable = true;
+	      enable = true;
 
-      qemu = {
+	      qemu = {
 
-      package = pkgs.qemu_kvm;
+	      package = pkgs.qemu_kvm;
 
-      ovmf.enable = true;
+	      ovmf.enable = true;
 
-      ovmf.packages = [ pkgs.OVMFFull.fd ];
+	      ovmf.packages = [ pkgs.OVMFFull.fd ];
 
-      swtpm.enable = true;
+	      swtpm.enable = true;
 
-      runAsRoot = false;
+	      runAsRoot = false;
 
       };
 
