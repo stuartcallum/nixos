@@ -23,5 +23,17 @@
 		enable = true;
 		xwayland.enable = true;
 	};
+
+  services.mpd = {
+    enable = true;
+    user = "callum";
+    extraConfig = ''
+          audio_output {
+	    type "pipewire"
+	    name "My PipeWire Output"
+         }
+    '';
+  };
+
 }
 
