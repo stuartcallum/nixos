@@ -34,6 +34,13 @@ in {
 			ranger # tui file explorer
 			lxappearance	# gtk themes
 			pam	# pluggable authentication module
+			chromium	# open source chrome
+			lm_sensors # device temp
+			wirelesstools
+			linssid
+			lshw
+			lshw-gui
+			unstable.razergenie
 		];
 
 	fonts.packages = with pkgs; [
@@ -50,7 +57,7 @@ in {
 	];
 
 	programs.thunar.enable = true; # file explorer
-
+	services.usbmuxd.enable = true;
 # 	services.openvpn.servers = {
 # 		officeVPN = { config = '' config /home/.openvpn3/Documents/visualcortex.ovpn ''; };
 # 	};

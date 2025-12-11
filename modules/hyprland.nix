@@ -11,6 +11,7 @@
 		kitty
 		hyprpaper
 		mpd
+		foot
 	];
 
 	# Enable the gnome-keyring secrets vault. 

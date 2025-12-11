@@ -1,32 +1,37 @@
 { config, pkgs, lib, ... }:
 {
 
-	services.gnome.gnome-keyring.enable = true;
-	
-	services.xserver = {
-		enable = true;
-		desktopManager.gnome.enable = true;
-		displayManager.gdm.enable = true;
-	};
+  services = {
+    xserver.displayManager.gdm.enable = true;
+    xserver.desktopManager.gnome.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
 
-#	services.displayManager.autoLogin = {
-#		enable = true;
-#		user = "callum";
-#	};
+	
+# 	services.xserver = {
+# 		enable = true;
+# 		desktopManager.gnome.enable = true;
+# 		displayManager.gdm.enable = false;
+# 	};
+
+	services.displayManager.autoLogin = {
+		enable = true;
+		user = "callum";
+	};
 
 
 	## Exclude shitty gnome apps	
-	services.gnome.core-utilities.enable = false;	
+	services.gnome.core-apps.enable = false;	
 	environment.gnome.excludePackages = (with pkgs; [
 		gnome-photos
 		gnome-tour
 		gedit
 		gnome-music
-		gnome-terminal
+		# gnome-terminal
 		epiphany
 		geary
 		evince
-		gnome-characters
+		# gnome-characters
 		totem
 		tali
 		iagno
@@ -40,7 +45,7 @@
 		gnome-usage
 		gnomeExtensions.dash-to-dock
 		alsa-ucm-conf
-		wezterm
+		ghostty
 	];
 
 	services.pipewire.enable = true;

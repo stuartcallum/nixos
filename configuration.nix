@@ -9,9 +9,11 @@
     [ # Include the results of the hardware scan.
 	./hardware-configuration.nix
 	./modules/packages.nix
-	./modules/hyprland.nix
-	./modules/displaymanager.nix
+#	./modules/hyprland.nix
+#	./modules/displaymanager.nix
 	./modules/games.nix
+#	./modules/coolercontrol.nix
+	./modules/gnome.nix
     ];
 
   # Bootloader.
@@ -60,17 +62,10 @@
     extraGroups = [ "networkmanager" "wheel" "libvirt" ];
   };
 
-  users.users.work = {
-    isNormalUser = true;
-    description = "Work";
-    extraGroups = [ "networkmanager" "wheel" "libvirt"];
-    packages = [ pkgs._1password-gui pkgs.remmina pkgs.adoptopenjdk-icedtea-web];
-  };
-
 #  users.allowNoPasswordLogin = true;
 
   # Enable automatic login for the user.
-  # services.getty.autologinUser = "callum";
+#  services.getty.autologinUser = "callum";
 
   services.devmon.enable = true;
   services.gvfs.enable = true;
@@ -80,8 +75,8 @@
   
   programs.direnv.enable = true;
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth.enable = false;
+  hardware.bluetooth.powerOnBoot = false;
   services.blueman.enable = true;
 
   environment.variables.EDITOR = "nvim";
@@ -110,6 +105,15 @@
 	
 	security.sudo.wheelNeedsPassword = false;
 	
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+  nix.settings.auto-optimise-store = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 ###  options.vfio.enable = with lib;
 ###    mkEnableOption "Configure the machine fro VFIO";
 ###  vfio.enable = true;
@@ -134,7 +138,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
